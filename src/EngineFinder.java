@@ -185,8 +185,8 @@ public class EngineFinder implements ActionListener {
 
                     double nc = ListChambers.get(j);
 
-                    int curveGap = parent.newPlot.createCurve((int) n + " " + (int) nc);
-                    int curve    = parent.newPlotRate.createCurve((int) n + " " + (int) nc);
+                    int curveGap = parent.newPlotSeries.createCurve((int) n + " " + (int) nc);
+                    int curve    = parent.newPlotRateSeries.createCurve((int) n + " " + (int) nc);
                     Result result = new Result();
                     result.Calculate(n, nc);
 
@@ -194,8 +194,8 @@ public class EngineFinder implements ActionListener {
 
                         double u = (((1.0 - result.alfaSI) * ((1.0 - ks) * Psi - hi) + result.alfaSI * PsiIn) / ((ks * (result.alfa1I + result.alfa3I) - result.alfa1I) * Psi + (result.alfa1I + result.alfa3I) * hi));
 
-                        parent.newPlot.addPoint1(Psi, Math.pow(u, 0.3), curveGap);
-                        parent.newPlotRate.addPoint(Psi, (u * (1 + result.alfa12 * u) * beta - PsiIn) / (1 + (result.G * u)), curve);
+                        parent.newPlotSeries.addPoint1(Psi, Math.pow(u, 0.3), curveGap);
+                        parent.newPlotRateSeries.addPoint1(Psi, (u * (1 + result.alfa12 * u) * beta - PsiIn) / (1 + (result.G * u)), curve);
 
                     }
                 }
@@ -206,10 +206,10 @@ public class EngineFinder implements ActionListener {
                 @Override
                 public void run() {
 
-                    parent.newPlot.updateDataset();
-                    parent.newPlot.setVisible(true);
-                    parent.newPlotRate.updateDataset();
-                    parent.newPlotRate.setVisible(true);
+                    parent.newPlotSeries.updateDataset();
+                    parent.newPlotSeries.setVisible(true);
+                    parent.newPlotRateSeries.updateDataset();
+                    parent.newPlotRateSeries.setVisible(true);
 
                 }
             });

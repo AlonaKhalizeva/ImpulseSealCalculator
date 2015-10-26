@@ -37,8 +37,8 @@ public class Finder {
     ImageIcon image48   = new ImageIcon("48.png");
     JLabel labelImage48 = new JLabel("", image48, JLabel.CENTER);
 
-    PlotsCalculator newPlot          = new PlotsCalculator("Plots");
-    PlotsCalculatorRates newPlotRate = new PlotsCalculatorRates("Plot Rate");
+    PlotSeries newPlotSeries          = new PlotSeries("Static Characteristic", "Pressure", "Gap");
+    PlotSeries newPlotRateSeries      = new PlotSeries("Flow Rate Characteristic", "Pressure", "Flow Rate");
 
     Finder() {
 

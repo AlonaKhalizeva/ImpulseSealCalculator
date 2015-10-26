@@ -52,8 +52,8 @@ public class Calculator {
     ImageIcon image   = new ImageIcon("Seal.jpg");
     JLabel labelImage = new JLabel("", image, JLabel.CENTER);
 
-    PlotsCalculator newPlot       = new PlotsCalculator("Plots");
-    PlotsCalculatorRates newPlotRate = new PlotsCalculatorRates("Plot Rate");
+    Plots newPlot     = new Plots("Static Characteristic", "Pressure", "Gap");
+    Plots newPlotRate = new Plots("Flow Rate Characteristic", "Pressure", "Flow Rate");
 
     Calculator() {
 

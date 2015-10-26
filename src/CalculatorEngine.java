@@ -184,14 +184,12 @@ public class CalculatorEngine implements ActionListener{
 
         } else if (src == parent.graphicCreation) {
 
-            int curve    = parent.newPlotRate.createCurve((int) n + " " + (int) nc);
-
             for (double Psi = 0.2; Psi < 2.0; Psi += 0.01) {
 
                 double u = (((1.0 - alfaSI) * ((1.0 - ks) * Psi - hi) + alfaSI * PsiIn) / ((ks * (alfa1I + alfa3I) - alfa1I) * Psi + (alfa1I + alfa3I) * hi));
 
-                parent.newPlot.addPointSimple(Psi, Math.pow(u, 0.3));
-                parent.newPlotRate.addPoint(Psi, ((u * (1 + alfa12 * u) * beta - PsiIn) / (1 + (G * u))),curve);
+                parent.newPlot.addPoint(Psi, Math.pow(u, 0.3));
+                parent.newPlotRate.addPoint(Psi, ((u * (1 + alfa12 * u) * beta - PsiIn) / (1 + (G * u))));
 
             }
 
@@ -201,7 +199,6 @@ public class CalculatorEngine implements ActionListener{
                 public void run() {
 
                     parent.newPlot.setVisible(true);
-
                     parent.newPlotRate.setVisible(true);
 
                 }

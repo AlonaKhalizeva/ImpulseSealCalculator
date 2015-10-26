@@ -1,8 +1,6 @@
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
@@ -13,16 +11,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class PlotsCalculatorRates extends JFrame {
+public class PlotSeries extends JFrame {
 
     ArrayList<XYSeries> series = new ArrayList<XYSeries>();
     private XYSeriesCollection dataset;
 
-    public PlotsCalculatorRates(String title) {
+    public PlotSeries(String title, String yAxis, String xAxis) {
 
         super(title);
 
-        JPanel chartPanel = createChartPanel();
+        JPanel chartPanel = createChartPanel(title, xAxis, yAxis);
         add(chartPanel, BorderLayout.CENTER);
 
         setSize(640, 480);
@@ -31,16 +29,15 @@ public class PlotsCalculatorRates extends JFrame {
 
     }
 
-    private JPanel createChartPanel() {
+    private JPanel createChartPanel(String title, String xAxis, String yAxis) {
 
         XYDataset dataset = createDataset();
 
-        JFreeChart chart = ChartFactory.createXYLineChart("Flow Rate Characteristic", "Pressure", "Flow Rate", dataset, PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart chart = ChartFactory.createXYLineChart(title, xAxis, yAxis, dataset, PlotOrientation.VERTICAL, true, true, false);
 
         chart.getXYPlot().setBackgroundPaint(Color.WHITE);
         chart.getXYPlot().setDomainGridlinePaint(Color.BLACK);
         chart.getXYPlot().setRangeGridlinePaint(Color.BLACK);
-
         return new ChartPanel(chart);
     }
 
@@ -75,9 +72,9 @@ public class PlotsCalculatorRates extends JFrame {
         }
     }
 
-    public void addPoint(double u, double p, int i) {
+    public void addPoint1(double u, double p, int i) {
 
-        series.get(i).add(u,p);
+        series.get(i).add(u, p);
 
     }
 }

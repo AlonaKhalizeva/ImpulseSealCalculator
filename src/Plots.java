@@ -15,11 +15,11 @@ public class Plots extends JFrame {
 
     XYSeries series1 = new XYSeries("");
 
-    public Plots(String title) {
+    public Plots(String title, String xAxis, String yAxis) {
 
         super(title);
 
-        JPanel chartPanel = createChartPanel();
+        JPanel chartPanel = createChartPanel(title,xAxis, yAxis);
         add(chartPanel, BorderLayout.CENTER);
 
         setSize(800, 600);
@@ -28,11 +28,11 @@ public class Plots extends JFrame {
 
     }
 
-    private JPanel createChartPanel() {
+    private JPanel createChartPanel(String title, String xAxis, String yAxis) {
 
         XYDataset dataset = createDataset();
 
-        JFreeChart chart = ChartFactory.createXYLineChart("Static Characteristic", "Pressure", "Gap", dataset, PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart chart = ChartFactory.createXYLineChart(title, xAxis, yAxis, dataset, PlotOrientation.VERTICAL, true, true, false);
         chart.getXYPlot().setBackgroundPaint(Color.WHITE);
         chart.getXYPlot().setDomainGridlinePaint(Color.BLACK);
         chart.getXYPlot().setRangeGridlinePaint(Color.BLACK);
